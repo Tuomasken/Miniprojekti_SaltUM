@@ -1,21 +1,7 @@
 import pwd
 
 def audit_users(min_uid=1000, exclude=None):
-    """
-    Compare actual system users (UID >= min_uid) to users defined in pillar.
 
-    Args:
-        min_uid (int): Minimum UID to consider as a "real" user.
-        exclude (list): List of usernames to ignore (e.g., 'nobody').
-
-    Returns:
-        dict: {
-            expected: [users from pillar],
-            actual: [users on system],
-            missing: [users in pillar but not on system],
-            extra: [users on system but not in pillar]
-        }
-    """
     if exclude is None:
         exclude = ['nobody', 'vagrant']
 
