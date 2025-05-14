@@ -19,17 +19,14 @@ def audit_users(min_uid=1000, exclude=None):
     if exclude is None:
         exclude = ['nobody']
 
-    # Get expected users from pillar
     expected_users = list(__pillar__.get('users', {}).keys())
 
-    # Get actual users from the system
     actual_users = [
         user.pw_name
         for user in pwd.getpwall()
         if user.pw_uid >= min_uid and user.pw_name not in exclude
     ]
 
-    # Calculate differences
     missing_users = sorted(set(expected_users) - set(actual_users))
     extra_users = sorted(set(actual_users) - set(expected_users))
 
