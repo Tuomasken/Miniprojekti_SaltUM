@@ -1,4 +1,4 @@
-{# Loop through each user in pillar['users'] #}
+{# Tämän avulla käydään läpi jokaine käyttäjä pilarissa ['users'] #}
 {% for user, info in pillar.get('users', {}).items() %}
 
 {{ user }}_user:
