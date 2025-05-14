@@ -17,7 +17,7 @@ def audit_users(min_uid=1000, exclude=None):
         }
     """
     if exclude is None:
-        exclude = ['nobody']
+        exclude = ['nobody', 'vagrant']
 
     expected_users = list(__pillar__.get('users', {}).keys())
 
