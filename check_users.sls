@@ -11,7 +11,6 @@
 
 {% set extra_users = system_users | difference(expected_users | list) %}
 
-{# Optional: log or remove unexpected users #}
 {% for user in extra_users %}
 log_extra_user_{{ user }}:
   test.show_notification:
