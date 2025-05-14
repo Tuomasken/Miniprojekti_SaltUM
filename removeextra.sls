@@ -9,5 +9,5 @@
 remove_unexpected_user_{{ user }}:
   user.absent:
     - name: {{ user }}
-    - remove: True
+    - purge: True
 {% endfor %}
